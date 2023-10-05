@@ -1,4 +1,5 @@
 # sb-collection
 streamer.bot scripts collection
 
-- alerts-importer: importiere sound/video files in OBS
+- alerts-importer: import sound/video files in OBS
+- quotes-exporter: export quotes formatted to a txt file

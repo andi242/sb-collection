@@ -6,7 +6,7 @@ public class CPHInline
 {
     public bool Execute()
     {
-        CPH.LogInfo("import startet");
+        CPH.LogInfo("import starting");
         string alertScene = args["alertScene"].ToString();
         var mp3Dir = args["soundsDir"].ToString();
         var mp4Dir = args["videosDir"].ToString();
@@ -15,7 +15,7 @@ public class CPHInline
         var isConnected = args["obs.isConnected"].ToString();
         if (isConnected != "True" )
         {
-            CPH.LogInfo("error: OBS nicht verbunden");
+            CPH.LogInfo("error: OBS not connected");
             return false;
         }
         List<string> mediaFiles = new List<string>();
@@ -32,10 +32,10 @@ public class CPHInline
         
         try
         {
-            CPH.LogInfo("insgesamt " + mediaFiles.Count + " Dateien");
+            CPH.LogInfo( mediaFiles.Count + " files total");
             if (mediaFiles.Count == 0 )
             {
-                CPH.LogInfo("error: " + mediaFiles.Count + " Dateien");
+                CPH.LogInfo("error: " + mediaFiles.Count + " files found");
                 return false;
             }
             foreach (var file in mediaFiles)
@@ -50,9 +50,8 @@ public class CPHInline
         catch (Exception ex)
         {
             CPH.LogInfo(ex.Message);
-            CPH.LogInfo("err");
         }
-        CPH.LogInfo("import abgeschlossen");
+        CPH.LogInfo("import finished");
         return true;
     }
 }
