@@ -2,7 +2,8 @@
 
 Setup:
 - `timer-setup` action: Optionen anpassen
-- `!timersave` in den chat um Optionen und Einstellungen zu speichern 
+- `!timersave` in den chat um Optionen und Einstellungen zu speichern
+- Textquelle in OBS anpassen, Farbe, Größe, etc.
 
 Commands:
 - `!timersave` optionen speichern, ggf. in OBS Sourcen anlegen
