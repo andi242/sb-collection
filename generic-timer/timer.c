@@ -52,7 +52,7 @@ class CPHInline
         string countdownString = string.Format("{2} | {0}:{1}", (int)time.TotalMinutes, time.ToString("ss"), statusText);
         if (timerSeconds == 0){
             stopTimer(CPH.GetGlobalVar<string>("timerEndeText", true));
-            CPH.PlaySound(CPH.GetGlobalVar<string>("timerSound", true), 0.5, true);
+            CPH.PlaySound(CPH.GetGlobalVar<string>("timerSound", true), 0.5f, true);
         } else {
             CPH.ObsSetGdiText(CPH.GetGlobalVar<string>("timerObsScene", true), CPH.GetGlobalVar<string>("timerObsText", true), countdownString);
         }
