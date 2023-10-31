@@ -8,6 +8,7 @@ class CPHInline
     public int timerSeconds;
     public string statusText;
     public string errorMessage = "Error, use command like: !timer pause,10";
+    public string dlSound = "https://www.myinstants.com/media/sounds/the_witcher_3_quests_completed_sound_2wq1RSS.mp3";
     public string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
     public void Init(){
         timerTimer = new System.Timers.Timer(1000);
@@ -26,7 +27,7 @@ class CPHInline
             CPH.LogInfo("option not found, downloading sound.");
             using (var client = new WebClient()) {
                 // download soundalert file to streamerbot directory
-                client.DownloadFile("https://www.myinstants.com/media/sounds/sheep-baaa.mp3", baseDirectory + "timerAlarm.mp3");
+                client.DownloadFile(dlSound, baseDirectory + "timerAlarm.mp3");
             }
             CPH.SetGlobalVar("timerSound", baseDirectory + "timerAlarm.mp3", true);
         }
@@ -51,7 +52,7 @@ class CPHInline
         string countdownString = string.Format("{2} | {0}:{1}", (int)time.TotalMinutes, time.ToString("ss"), statusText);
         if (timerSeconds == 0){
             stopTimer(CPH.GetGlobalVar<string>("timerEndeText", true));
-            CPH.PlaySound(CPH.GetGlobalVar<string>("timerSound", true), 20, true);
+            CPH.PlaySound(CPH.GetGlobalVar<string>("timerSound", true), 0.5, true);
         } else {
             CPH.ObsSetGdiText(CPH.GetGlobalVar<string>("timerObsScene", true), CPH.GetGlobalVar<string>("timerObsText", true), countdownString);
         }
