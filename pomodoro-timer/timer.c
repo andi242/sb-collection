@@ -6,6 +6,7 @@ class CPHInline
     public System.Timers.Timer pomoTimer;
     public int pomoSeconds;
     public string statusText;
+    public string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
     public void Init(){
         pomoTimer = new System.Timers.Timer(1000);
         pomoTimer.Elapsed += OnTimedEvent;
@@ -16,6 +17,7 @@ class CPHInline
     // setup obs sources    
     public bool obsSetup(){
         // set some global vars from arguments
+        CPH.SetGlobalVar("pomoSound", args["finishSound"].ToString(), true);
         CPH.SetGlobalVar("pomoObsScene", args["obsScene"].ToString(), true);
         CPH.SetGlobalVar("pomoObsText", args["obsText"].ToString(), true);
         CPH.SetGlobalVar("pomoEndeText", args["pomoEnde"].ToString(), true);
@@ -47,6 +49,7 @@ class CPHInline
         string countdownString = string.Format("{2} {0}:{1}", (int)time.TotalMinutes, time.ToString("ss"), statusText);
         if (pomoSeconds == 0){
             stopTimer(CPH.GetGlobalVar<string>("pomoEndeText", true));
+            CPH.PlaySound(CPH.GetGlobalVar<string>("pomoSound", true), 50, true);
         } else {
             CPH.ObsSetGdiText(CPH.GetGlobalVar<string>("pomoObsScene", true), CPH.GetGlobalVar<string>("pomoObsText", true), countdownString);
         }
@@ -70,5 +73,4 @@ class CPHInline
         stopTimer(CPH.GetGlobalVar<string>("pomoEndeText", true));
         return true;
     }
-
 }

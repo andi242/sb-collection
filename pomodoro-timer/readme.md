@@ -12,6 +12,7 @@ SB action options:
 - `pomoEnde`: OBS timer end text
 - `workText`: OBS work display text
 - `pauseText`: OBS pause display text
+- `pomoSound`: path to mp3 to play at end of timer
 
 ## changelogdiarything
 
