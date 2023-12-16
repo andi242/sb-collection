@@ -1,20 +1,20 @@
 # timer
 
 Setup:
-- `timer-setup` action: Optionen anpassen
-- `!timersave` in den chat um Optionen und Einstellungen zu speichern
-- Textquelle in OBS anpassen, Farbe, Größe, etc.
+- `timer-setup` action: check and set options
+- `!timersave` type in chat, to save options
+- adjust created txt source in OBS
 
 Commands:
-- `!timersave` optionen speichern, ggf. in OBS Sourcen anlegen
-- `!timer TEXT,##` starte timer mit ## Minuten und TEXT als Titel. Komma getrennt!
-- `!timerstop` Timer abbrechen
+- `!timersave` save options and run setup
+- `!timer TEXT,##` start timer with ## minutes and TEXT as title
+- `!timerstop` abort timer
 
 SB action options:
-- `obsScene`: OBS scene für die Text Source
+- `obsScene`: OBS scene for text source
 - `obsText`: OBS Text element name
-- `timerEnde`: OBS Text der nach Ablauf gezeigt wird
-- `finishSound`: Pfad zu einem mp3, das nach Ablauf eines Timers abgespielt wird. Optional, wenn nicht gesetzt wird eine mp3 in das Streamerbot Verzeichnis geladen.
+- `timerEnde`: OBS text to show after timer ended
+- `finishSound`: optional, path to mp3 file that will be played after time ends
 
 ## changelogdiarything
 
