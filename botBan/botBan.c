@@ -3,10 +3,6 @@ using System.Collections.Generic;
 
 class CPHInline
 {
-    
-    public string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-
-    // setup obs sources    
     public bool checkMessage(){
         string msg = args["rawInput"].ToString().ToLower();
         string userName = args["userName"].ToString();
