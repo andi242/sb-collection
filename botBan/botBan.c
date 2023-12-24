@@ -9,8 +9,8 @@ class CPHInline
         string reason = "blacklisted chatting.";
         List<string> blockList = CPH.GetGlobalVar<List<string>>("blockList", true);
         foreach (var entry in blockList) {
-            CPH.LogInfo($"{entry} found in {msg}.");
             if(msg.Contains(entry.ToLower())){
+                CPH.LogInfo($"{entry} found in {msg}.");
                 if(!CPH.UserInGroup(userName, args["friendliesGroup"].ToString())){
                     CPH.AddUserToGroup(userName, "blockedBots");
                     CPH.TwitchTimeoutUser(userName, 30, reason, true);
