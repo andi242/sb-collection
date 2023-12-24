@@ -2,6 +2,7 @@
 streamer.bot scripts collection
 
 - alerts-importer: import sound/video files in OBS
+- botBan: keyword based first words ban action
 - quotes-exporter: export quotes formatted to a txt file
 - generic-timer: timer with creating OBS elements
 - timed-vip: grant a viewer VIP for 30 days
