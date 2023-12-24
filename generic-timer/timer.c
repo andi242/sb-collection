@@ -74,7 +74,9 @@ class CPHInline
             CPH.SendMessage(errorMessage, true);
             return false;
         }
+        // einblenden
         timerTimer.Start();
+        CPH.ObsShowSource(CPH.GetGlobalVar<string>("timerObsScene", true), CPH.GetGlobalVar<string>("timerObsText", true), 0);
         return true;
     }
 
@@ -86,6 +88,7 @@ class CPHInline
 
     public bool cancelTimer(){
         stopTimer(CPH.GetGlobalVar<string>("timerEndeText", true));
+        CPH.ObsHideSource(CPH.GetGlobalVar<string>("timerObsScene", true), CPH.GetGlobalVar<string>("timerObsText", true), 0);
         return true;
     }
 }
