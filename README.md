@@ -10,4 +10,5 @@ streamer.bot scripts collection
 
 ## C# Methods
 
-https://wiki.streamer.bot/en/Sub-Actions/Code/CSharp/Available-Methods/Twitch
+https://wiki.streamer.bot/en/Sub-Actions/Code/CSharp/Available-Methods/Twitch  
+https://docs.streamer.bot/api/csharp
