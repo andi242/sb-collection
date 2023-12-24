@@ -1,5 +1,7 @@
 # sb-collection
-streamer.bot scripts collection
+
+streamer.bot scripts collection.  
+somewhere out there all of this might already exist, but I have fun doing this on my own.  
 
 - alerts-importer: import sound/video files in OBS
 - botBan: keyword based first words ban action
