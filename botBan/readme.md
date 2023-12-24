@@ -9,5 +9,4 @@ Also all banned users are added to an extra group in SB.
 Commands:
 - `!ban add <keyword>` adds a keyword to the list
 - `!ban list` lists blacklisted keywords
-- `!ban del` or `!ban remove` lists the current blocked terms
 - `!ban del <keyword>` or `!ban remove <keyword>` removes a keyword from the list
