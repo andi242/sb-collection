@@ -6,12 +6,17 @@ class CPHInline
     public bool checkMessage(){
         string msg = args["rawInput"].ToString().ToLower();
         string userName = args["userName"].ToString();
+        string reason = "blacklisted chatting.";
         List<string> blockList = CPH.GetGlobalVar<List<string>>("blockList", true);
         foreach (var entry in blockList) {
-            CPH.LogInfo($"{entry}");
+            CPH.LogInfo($"{entry} found in {msg}.");
             if(msg.Contains(entry.ToLower())){
-                CPH.TwitchTimeoutUser(userName, 30, "blacklisted chatting.", true);
-                CPH.TwitchBanUser(userName, "blacklisted chatting.", true);
+                if(!CPH.UserInGroup(userName, args["friendliesGroup"].ToString())){
+                    CPH.AddUserToGroup(userName, "blockedBots");
+                    CPH.TwitchTimeoutUser(userName, 30, reason, true);
+                    CPH.TwitchBanUser(userName, reason, true);
+                    CPH.SendMessage($"/me {userName} banned for {reason}", true);
+                }
             }
         }
         return true;
@@ -24,7 +29,6 @@ class CPHInline
         return reply;
     }
     public bool removeMatch(){
-        // alle ausgeben
         List<string> blockList = CPH.GetGlobalVar<List<string>>("blockList", true);
         string msg = args["rawInputEscaped"].ToString();
         string reply = "";
