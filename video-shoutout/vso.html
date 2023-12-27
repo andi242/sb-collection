@@ -1,0 +1,18 @@
+<html>
+<head>
+    <script>
+        function shoutout() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const video = urlParams.get('video');
+            const videoElement = document.getElementById('videoplayer');
+            videoElement.src = video;
+        }
+    </script>
+</head>
+
+<body onload="shoutout();">
+    <div id="videocontainer" style="position:absolute; left: 0px; top: 0px; width: 100%;z-index:10" ;>
+        <video id='videoplayer' style="width:100%" autoplay="true"></video>
+    </div>
+</body>
+</html>
