@@ -19,11 +19,11 @@ class CPHInline
     }
 
     public bool Execute(){
+        string command = "";
         string trigger = args["triggerName"].ToString();
         string userName = args["userName"].ToString();
         string msg = args["rawInput"].ToString();
         string msgId = args["msgId"].ToString();
-        string command = "";
         if (trigger == "First Words"){
             sendGreetings(userName, msgId);
         } else {
