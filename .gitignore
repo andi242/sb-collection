@@ -1,7 +1,8 @@
 # hide work in progress
 play-sound/
-clip-loop/
 streamstart-countdown/
 alert-sources/
 _snippets/
+ytmdesktop-query/
+yawn/
 *.bak
