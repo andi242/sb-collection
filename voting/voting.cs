@@ -52,6 +52,7 @@ class CPHInline
         CPH.DisableAction("voteRegister");
         int voteCount = 0;
         int voteSum = 0;
+        List<double> voteSeries = new List<double>();
         float voteResult = 0;
         JToken usersJson = JToken.Parse(File.ReadAllText(baseDirectory + @"/data/users.dat"));
         JObject userNames = usersJson.Value<JObject>("users");
@@ -60,21 +61,29 @@ class CPHInline
             JObject commandArray = userNames.Value<JObject>(result.Key);
             var userName = commandArray["name"].ToString();
             if (commandArray["type"].ToString() == "twitch") {
-                if (CPH.GetTwitchUserVar<int>(userName, "pollVote", true) != 0){
-                    int pollVote = CPH.GetTwitchUserVar<int>(userName, "pollVote", true);
+                int pollVote = CPH.GetTwitchUserVar<int>(userName, "pollVote", true);
+                if ( pollVote >= 1 ){
+                    //int pollVote = CPH.GetTwitchUserVar<int>(userName, "pollVote", true);
                     CPH.LogInfo($"{userName}: {pollVote}");
                     voteCount++;
                     voteSum = voteSum + pollVote;
+                    voteSeries.Add(pollVote);
                 }
             }
         }
         if (voteCount == 0){
             CPH.LogInfo($"votes {voteCount}: no votes");
-            CPH.SendMessage("No votes... sad.", true);
+            CPH.SendMessage("zero votes... sad.", true);
         } else {
             voteResult = (float)voteSum/(float)voteCount;
-            CPH.LogInfo($"votes {voteCount}: {voteResult.ToString("N2")}");
-            CPH.SendMessage($"Results are: {voteCount} votes, mean {voteResult.ToString("N2")}", true);
+            double median = Median(voteSeries);
+            CPH.LogInfo($"votes {voteCount}");
+            CPH.LogInfo($"votes average: {voteResult.ToString("N2")}");
+            CPH.LogInfo($"votes median: {median}");
+            CPH.SetArgument("voteCount", voteCount);
+            CPH.SetArgument("average", voteResult.ToString("N2"));
+            CPH.SetArgument("median", median);
+            //CPH.SendMessage($"{voteCount} votes, average {voteResult.ToString("N2")} / median: {median}", true);
         }
         voteReset();
         return true;
@@ -83,5 +92,13 @@ class CPHInline
     public void voteReset(){
         CPH.LogInfo($"resetting votes");
         CPH.UnsetAllUsersVar("pollVote", true);
+    }
+
+    public static T Median<T>(List<T> Values)
+    {
+        if (Values.Count == 0)
+            return default(T);
+        Values.Sort();
+        return Values[(Values.Count / 2)];
     }
 }
