@@ -9,6 +9,7 @@ somewhere out there all of this might already exist, but I have fun doing this o
 - greetings: first words greeter
 - quotes-exporter: export quotes formatted to a txt file
 - timed-vip: grant a viewer VIP for 30 days
+- video-shoutout: single vso and brb player
 - voting: let viewers cast 1-10 votes on a topic and share results
 
 ## C# Methods
