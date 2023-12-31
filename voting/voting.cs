@@ -53,6 +53,7 @@ class CPHInline
         int voteCount = 0;
         int voteSum = 0;
         List<double> voteSeries = new List<double>();
+        //double[] voteSeries = new double[]{};
         float voteResult = 0;
         JToken usersJson = JToken.Parse(File.ReadAllText(baseDirectory + @"/data/users.dat"));
         JObject userNames = usersJson.Value<JObject>("users");
@@ -76,14 +77,15 @@ class CPHInline
             CPH.SendMessage("zero votes... sad.", true);
         } else {
             voteResult = (float)voteSum/(float)voteCount;
-            double median = Median(voteSeries);
+            //double median = Median(voteSeries);
+            double[] votes = voteSeries.ToArray();
+            double median = GetMedian(votes);
             CPH.LogInfo($"votes {voteCount}");
             CPH.LogInfo($"votes average: {voteResult.ToString("N2")}");
             CPH.LogInfo($"votes median: {median}");
             CPH.SetArgument("voteCount", voteCount);
             CPH.SetArgument("average", voteResult.ToString("N2"));
             CPH.SetArgument("median", median);
-            //CPH.SendMessage($"{voteCount} votes, average {voteResult.ToString("N2")} / median: {median}", true);
         }
         voteReset();
         return true;
@@ -94,11 +96,18 @@ class CPHInline
         CPH.UnsetAllUsersVar("pollVote", true);
     }
 
-    public static T Median<T>(List<T> Values)
-    {
-        if (Values.Count == 0)
-            return default(T);
-        Values.Sort();
-        return Values[(Values.Count / 2)];
+    public static double GetMedian(double[] sourceNumbers) {
+        if (sourceNumbers == null || sourceNumbers.Length == 0)
+            throw new System.Exception("Median of empty array not defined.");
+
+        //make sure the list is sorted, but use a new array
+        double[] sortedPNumbers = (double[])sourceNumbers.Clone();
+        Array.Sort(sortedPNumbers);
+
+        //get the median
+        int size = sortedPNumbers.Length;
+        int mid = size / 2;
+        double median = (size % 2 != 0) ? (double)sortedPNumbers[mid] : ((double)sortedPNumbers[mid] + (double)sortedPNumbers[mid - 1]) / 2;
+        return median;
     }
 }
