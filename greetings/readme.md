@@ -1,13 +1,13 @@
 # greetings
 
 simple greetings on first-words event, saved in a user variable.
-On first words the bot replies with the saved message. Replies can not invoke `!commands`.
+On first words the bot replies with the saved message. Replies can not invoke `!commands`.  
+`/` and `!` commands are filtered.
 
 Commands:
 - `!greet set <msg>` set the greeting for the user.
 - `!greet del` delete the greetings.
 
-## ToDo
+# todo
 
-- command filter to prevent / commands in greetings
-  - `if regex '^/.*', err, return false;`
+- replace german texts

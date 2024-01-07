@@ -5,4 +5,4 @@ provides action to reset on stream start.
 
 ## todo
 
-- remove german locales
+- replace german texts
