@@ -14,8 +14,12 @@ class CPHInline
     }
 
     public void setGreetings(string userName, string msg, string msgId){
-        CPH.SetTwitchUserVar(userName, "greetings", msg, true);
-        CPH.TwitchReplyToMessage($"deine neue Begrüßung: {msg}", msgId, true);
+        if (msg.StartsWith("/") || msg.StartsWith("!")){
+            CPH.TwitchReplyToMessage($"ungültige Begrüßung, bitte etwas tolleres auswählen.", msgId, true);
+        } else {
+            CPH.SetTwitchUserVar(userName, "greetings", msg, true);
+            CPH.TwitchReplyToMessage($"deine neue Begrüßung: {msg}", msgId, true);
+        }
     }
 
     public bool Execute(){
