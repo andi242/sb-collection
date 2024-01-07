@@ -4,5 +4,7 @@ streamstart-countdown/
 alert-sources/
 _snippets/
 ytmdesktop-query/
-yawn/
+poll/
+camfilter-action/
+plugin-installer/
 *.bak
