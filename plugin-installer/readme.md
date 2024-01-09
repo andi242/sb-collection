@@ -1,4 +1,4 @@
-# [Work in Progress] Download Plugins with streamer bot
+# [Work in Progress] download OBS plugins with streamer bot
 
 ## disclaimer 
 
