@@ -15,7 +15,7 @@ public class CPHInline
         string logFolder = @"plugin-install-logs\";
         string pluginList = obsRoot + @"\plugins.txt";
         // it's `;` because url parameters have a = in them -.-
-        // a json file would be appropriate, but that might be a bummer for normal users
+        // a json file would be appropriate, but that might be a bummer for some users
         char pluginListDelimiter = ';';
         if (!Directory.Exists(dlFolder))
         {
