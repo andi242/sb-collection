@@ -14,6 +14,7 @@ class CPHInline
     }
 
     public void setGreetings(string userName, string msg, string msgId){
+        // don't allow commands, just to be safe
         if (msg.StartsWith("/") || msg.StartsWith("!")){
             CPH.TwitchReplyToMessage($"ungültige Begrüßung, bitte etwas tolleres auswählen.", msgId, true);
         } else {
