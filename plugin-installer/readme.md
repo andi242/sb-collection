@@ -32,6 +32,10 @@ all you need to do is double check the `$OBS_ROOT_FOLDER\plugin-downloads`, perh
 
 > always check the streamerbot logs for information.
 
+## what it does not
+
+- check for latest releases (this is too tedious for now. I do not want to curate a list of plugins since some host their files on github, some in the obs forums... some to tags, some do releases...)
+
 ## todo
 
 - zipfiles containing subfolders are logged correctly, but files should be moved within the downloads folder. how, c#? how!?
