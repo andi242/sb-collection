@@ -8,7 +8,7 @@ create a poll in obs. probably more for non-affilate users like me.
 
 ## How to use
 
-> Prerequisites: [Move Plugin](https://obsproject.com/forum/resources/move.913/) and [Advanced Masks Plugin](https://github.com/FiniteSingularity/obs-advanced-masks/) installed
+> Prerequisites: [Move Plugin](https://obsproject.com/forum/resources/move.913/), [Stroke/Glow Plugin](https://github.com/FiniteSingularity/obs-stroke-glow-shadow) and [Advanced Masks Plugin](https://github.com/FiniteSingularity/obs-advanced-masks/) installed
 
 Create a blank scene and nest it in to your other scenes where you want the poll.  
 Set the argument to the scene name.
