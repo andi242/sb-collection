@@ -19,16 +19,16 @@ Questions? Send a message: [twitch](https://www.twitch.tv/andi242/), [bluesky](h
 ## Plugins
 
 List of the OBS plugins I use:
-- https://github.com/FiniteSingularity/obs-noise/
+- https://github.com/exeldro/obs-shaderfilter/
 - https://obsproject.com/forum/resources/move.913/
-- https://github.com/FiniteSingularity/obs-advanced-masks/
 - https://obsproject.com/forum/resources/source-clone.1632
-- https://github.com/exeldro/obs-shaderfilter/   
+- https://github.com/FiniteSingularity/obs-noise/
+- https://github.com/FiniteSingularity/obs-advanced-masks/
 - https://github.com/FiniteSingularity/obs-stroke-glow-shadow
 - https://github.com/FiniteSingularity/obs-composite-blur/
 - https://github.com/phandasm/waveform/
 - https://github.com/ratwithacompiler/OBS-captions-plugin/
-
+- https://github.com/izzy/stream-chat (online version: https://chat.bean.tools/generator.html)
 
 ## C# Methods
 
