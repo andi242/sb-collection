@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.IO.Compression;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 public class CPHInline
 {
@@ -13,10 +14,19 @@ public class CPHInline
         string obsRoot = args["obsRootDir"].ToString();
         string dlFolder = obsRoot + @"\plugin-downloads\";
         string logFolder = @"plugin-install-logs\";
-        string pluginList = obsRoot + @"\plugins.txt";
-        // it's `;` because url parameters have a = in them -.-
-        // a json file would be appropriate, but that might be a bummer for some users
+        string pluginList = obsRoot + @"\obs-plugins.json";
         char pluginListDelimiter = ';';
+        
+        Dictionary<string, string> plugins = new Dictionary<string, string>();
+        Dictionary<string, string> uninstallPlugins = new Dictionary<string, string>();
+        JToken pluginsJson = JToken.Parse(File.ReadAllText(pluginList));
+        JArray installTokens = (JArray)pluginsJson["install"];
+        JArray uninstallTokens = (JArray)pluginsJson["uninstall"];
+        if (uninstallTokens.Count == 0 && installTokens.Count == 0)
+        {
+            CPH.LogInfo($"Pluginstaller: nothing to do, exiting.");
+            return true;
+        }
         if (!Directory.Exists(dlFolder))
         {
             CPH.LogInfo($"dir not present!");
@@ -43,20 +53,15 @@ public class CPHInline
             }
         }
 
-        Dictionary<string, string> plugins = new Dictionary<string, string>();
-        Dictionary<string, string> uninstallPlugins = new Dictionary<string, string>();
-        var lines = File.ReadAllLines(pluginList);
-        foreach (var line in lines) {
-            string[] substrings = line.Split(pluginListDelimiter);
-            string name = substrings[0].Trim();
-            string url = substrings[1].Trim();
-            if (name.StartsWith("#")){
-                CPH.LogInfo($"uninstall {name.Replace("#", string.Empty)}");
-                uninstallPlugins.Add(name.Replace("#", string.Empty),url);
-            } else {
-                CPH.LogInfo($"add {name} with {url}");
-                plugins.Add(name,url);
-            }
+        foreach (JToken item in installTokens)
+        {
+            CPH.LogInfo($"add {item["name"].ToString()} to install list.");
+            plugins.Add(item["name"].ToString(), item["dlurl"].ToString());
+        }
+        foreach (JToken item in uninstallTokens)
+        {
+            CPH.LogInfo($"add {item["name"].ToString()} to uninstall list.");
+            uninstallPlugins.Add(item["name"].ToString(), item["dlurl"].ToString());
         }
 
         List<string> zipContent = new List<string>();

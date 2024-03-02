@@ -1,0 +1,20 @@
+{
+    "install": [
+        {"name": "obs-retro-effects",      "dlurl": "https://github.com/FiniteSingularity/obs-retro-effects/releases/download/0.0.2a/obs-retro-effects-0.0.2a-windows.zip",            "version":"0.0.2a", "website": "https://github.com/FiniteSingularity/obs-retro-effects/"       }
+    ],
+    "uninstall": [
+        {"name": "obs-urlsource",          "dlurl": "https://github.com/occ-ai/obs-urlsource/releases/download/0.2.5/obs-urlsource-0.2.5-windows-x64.zip",                             "version":"0.2.5", "website": "https://github.com/occ-ai/obs-urlsource/"}
+    ],
+    "no action": [
+        {"name": "obs-noise",               "dlurl": "https://github.com/FiniteSingularity/obs-noise/releases/download/v0.0.5a/obs-noise-0.0.5a-windows.zip",                          "version":"0.0.5a", "website": "https://github.com/FiniteSingularity/obs-noise/"               },
+        {"name": "move-transitions",        "dlurl": "https://obsproject.com/forum/resources/move.913/version/5434/download?file=101478",                                              "version":"2.10.0", "website": "https://obsproject.com/forum/resources/move.913/"               },
+        {"name": "obs-advanced-masks",      "dlurl": "https://github.com/FiniteSingularity/obs-advanced-masks/releases/download/v1.1.0/obs-advanced-masks-v1.1.0-windows.zip",         "version":"1.1.0", "website": "https://github.com/FiniteSingularity/obs-advanced-masks/"       },
+        {"name": "source-clone",            "dlurl": "https://obsproject.com/forum/resources/source-clone.1632/version/4881/download?file=93640",                                      "version":"0.1.4", "website": "https://obsproject.com/forum/resources/source-clone.1632"       },
+        {"name": "obs-shaderfilter",        "dlurl": "https://github.com/exeldro/obs-shaderfilter/releases/download/2.2.1/obs-shaderfilter-2.2.1-windows.zip",                         "version":"2.2.1", "website": "https://github.com/exeldro/obs-shaderfilter/"                   },
+        {"name": "obs-stroke-glow-shadow",  "dlurl": "https://github.com/FiniteSingularity/obs-stroke-glow-shadow/releases/download/v1.0.2/obs-stroke-glow-shadow-1.0.2-windows.zip",  "version":"1.0.2", "website": "https://github.com/FiniteSingularity/obs-stroke-glow-shadow/"   },
+        {"name": "obs-composite-blur",      "dlurl": "https://github.com/FiniteSingularity/obs-composite-blur/releases/download/v1.1.0/obs-composite-blur-1.1.0-windows.zip",          "version":"1.1.0", "website": "https://github.com/FiniteSingularity/obs-composite-blur/"       },
+        {"name": "obs-waveform",            "dlurl": "https://github.com/phandasm/waveform/releases/download/v1.7.0/Waveform_v1.7.0_x86_64.zip",                                       "version":"1.7.0", "website": "https://github.com/phandasm/waveform/"                          },
+        {"name": "obs-captions-plugin",     "dlurl": "https://github.com/ratwithacompiler/OBS-captions-plugin/releases/download/v0.28/Closed_Captions_Plugin__v0.28_Windows.zip",      "version":"0.28", "website": "https://github.com/ratwithacompiler/OBS-captions-plugin/"        },
+        {"name": "streamdeckplugin",        "dlurl": "https://github.com/andi242/obs-install/raw/master/plugins/streamdeckplugin.zip",                                                 "version":"5.5.0", "website": "https://elgato.com/"                                            }
+    ]
+    }
