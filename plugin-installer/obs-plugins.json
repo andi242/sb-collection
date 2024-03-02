@@ -15,6 +15,6 @@
         {"name": "obs-composite-blur",      "dlurl": "https://github.com/FiniteSingularity/obs-composite-blur/releases/download/v1.1.0/obs-composite-blur-1.1.0-windows.zip",          "version":"1.1.0", "website": "https://github.com/FiniteSingularity/obs-composite-blur/"       },
         {"name": "obs-waveform",            "dlurl": "https://github.com/phandasm/waveform/releases/download/v1.7.0/Waveform_v1.7.0_x86_64.zip",                                       "version":"1.7.0", "website": "https://github.com/phandasm/waveform/"                          },
         {"name": "obs-captions-plugin",     "dlurl": "https://github.com/ratwithacompiler/OBS-captions-plugin/releases/download/v0.28/Closed_Captions_Plugin__v0.28_Windows.zip",      "version":"0.28", "website": "https://github.com/ratwithacompiler/OBS-captions-plugin/"        },
-        {"name": "streamdeckplugin",        "dlurl": "https://github.com/andi242/obs-install/raw/master/plugins/streamdeckplugin.zip",                                                 "version":"5.5.0", "website": "https://elgato.com/"                                            }
+        {"name": "streamdeckplugin",        "dlurl": "https://github.com/andi242/sb-collection/raw/master/plugin-installer/local-plugins/streamdeckplugin.zip",                        "version":"5.5.0", "website": "https://elgato.com/"                                            }
     ]
     }
