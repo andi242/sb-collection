@@ -1,5 +1,8 @@
 # video shoutout
 
+> [!IMPORTANT]  
+> requires streamer.bot v0.2.3  
+
 ## features
 
 - `!vsosetup`: creates a new scene with all items for the video shoutout. can be triggered manually right click -> test trigger.
