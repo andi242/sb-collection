@@ -75,22 +75,19 @@ public class CPHInline
         string nTextId = JToken.Parse(CPH.ObsSendRaw("GetSceneItemId", "{\"sceneName\":\""+ soScene +"\",\"sourceName\":\""+ tsource +"\",\"searchOffset\":0}", 0)).Value<JToken>("sceneItemId").ToString();
         string nUserId = JToken.Parse(CPH.ObsSendRaw("GetSceneItemId", "{\"sceneName\":\""+ soScene +"\",\"sourceName\":\""+ usource +"\",\"searchOffset\":0}", 0)).Value<JToken>("sceneItemId").ToString();
         string nGameImgId = JToken.Parse(CPH.ObsSendRaw("GetSceneItemId", "{\"sceneName\":\""+ soScene +"\",\"sourceName\":\""+ gsource +"\",\"searchOffset\":0}", 0)).Value<JToken>("sceneItemId").ToString();
+        //CPH.LogInfo($"nested scene ids: nSourceId {nSourceId}, nTextId {nTextId}, nUserId {nUserId}, nGameImgId {nGameImgId}");
         List<string> soSources = new List<string> { nGameImgId , nSourceId, nTextId, nUserId };
         
-        DateTime now = DateTime.Now;
-		DateTime startdate = DateTime.Now;
-		Random randomNumber = new Random();
-		startdate = startdate.AddDays(-300);
         string userName = args["rawInput"].ToString();
-
         List<string> clipList = CPH.GetGlobalVar<List<string>>("clipList", true);
         if (clipList == null){
             clipList = new List<string>();
         }
         
         CPH.LogInfo($"getting clips for {userName}");
-        var clips = CPH.GetClipsForUser(userName,startdate,now);
+        var clips = CPH.GetClipsForUser(userName, true); // only get the featured clips of user
         if (clips.Count != 0) {
+            Random randomNumber = new Random();
             CPH.Wait(100);
             int clipid = randomNumber.Next(0,clips.Count);
             var clip = clips[clipid];
@@ -143,7 +140,7 @@ public class CPHInline
             CPH.ObsSetImageSourceFile(soScene, gsource, "", 0);
         } else {
             CPH.LogInfo($"no clips found for {userName}.");
-            CPH.SendMessage($"no clips found for {userName}.", true);
+            //CPH.SendMessage($"no clips found for {userName}.", true);
         }
 		return true;
 	}
@@ -175,8 +172,6 @@ public class CPHInline
             CPH.LogInfo($"{queue} queue cleared.");
             return false;
         }
-
-        //string[] streamerlist = streamers.Split(',');
 
         string streamers = args["streamers"].ToString();
         string[] names = streamers.Split(',');
