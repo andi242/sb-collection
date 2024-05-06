@@ -20,7 +20,7 @@ class CPHInline
             if ((now - parsedVipDate).TotalDays > 0){
                 CPH.LogInfo($"VIP expired for {userName}");
                 CPH.TwitchRemoveVip(userName);
-                CPH.SendMessage($"VIP ist für {userName} ausgelaufen.",true);
+                CPH.SendMessage($"VIP expired for {userName}.",true);
                 CPH.UnsetTwitchUserVar(userName, "giftVipDate");
             }
         } catch (Exception ex) {
@@ -30,7 +30,7 @@ class CPHInline
     public bool removeUserVip(){
         string userName = args["rawInput"].ToString();
         CPH.TwitchRemoveVip(userName);
-        CPH.SendMessage($"VIP wurde für {userName} entfernt.",true);
+        CPH.SendMessage($"VIP removed for {userName}.",true);
         CPH.UnsetTwitchUserVar(userName, "giftVipDate");
         return true;
     }
@@ -51,7 +51,7 @@ class CPHInline
         var vipDate = CPH.GetTwitchUserVar<string>(userName, "giftVipDate", true);
         CPH.LogInfo($"{userName} is VIP until {vipDate.ToString()}");
         CPH.TwitchAddVip(userName);
-        CPH.SendMessage($"{userName} ist jetzt für {vipDays} Tage VIP.",true);
+        CPH.SendMessage($"{userName} is VIP for {vipDays} days.",true);
         return true;
     }
 
