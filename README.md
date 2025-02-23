@@ -1,5 +1,8 @@
 # sb-collection
 
+> ⚡ archived, will not be updated for 1.0  
+> some day, perhaps...
+
 streamer.bot scripts collection.  
 somewhere out there all of this might already exist, but I have fun doing this on my own.  
 
